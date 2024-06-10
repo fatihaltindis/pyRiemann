@@ -983,3 +983,30 @@ class MDWM(MDM):
         _, y_true, _ = decode_domains(X, y_enc)
         y_pred = self.predict(X)
         return accuracy_score(y_true, y_pred)
+
+
+class GLEstimator(BaseEstimator, TransformerMixin):
+    
+
+    def __init__(self, n_of_boots=100, bootsize=25, vecMean = True, vecNorm=True,
+                 whitening = "svd", white_dim = 16, sub_dim = 16, sort_U = True, 
+                 smart_subspace = 16, normalize_U = "white", initialize_U = "smart",
+                 random_state = 1, cross_DB = False):
+        self.n_of_boots = n_of_boots
+        self.bootsize = bootsize
+        self.vecMean = vecMean
+        self.vecNorm = vecNorm
+        self.whitening = whitening
+        self.white_dim = white_dim
+        self.sub_dim = sub_dim
+        self.sort_U = sort_U
+        self.smart_subspace = smart_subspace
+        self.normalize_U = normalize_U
+        self.initialize_U = initialize_U
+        self.random_state = random_state
+        self.cross_DB = cross_DB
+    
+    
+
+
+    
